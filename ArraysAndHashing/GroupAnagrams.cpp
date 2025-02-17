@@ -41,3 +41,8 @@ public:
         return result;
     }
 };
+
+======================= Above algorithm is oke, but yes expensive since sorting best algorithm can be nlogn (merge sort), and m times so m nlogn
+one can avoid this and use HashTable (using 26 as index and loop over character in string and if count is zero means anagram.
+
+https://neetcode.io/problems/anagram-groups
