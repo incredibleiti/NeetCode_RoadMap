@@ -10,12 +10,12 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
     for (auto val : nums) {
         numsMap[val]++; //addds key and occurence        
     }
-    //loop over the map     
+    //loop over the map and add pair
     vector<pair<int,int>> res;
     for(const auto& v: numsMap) {
         res.push_back({v.second, v.first}); //occurence, value
     }
-    sort(res.rbegin(), res.rend()); //if you will not reverse sort, results might not be the same (we need descvendiung)
+    sort(res.rbegin(), res.rend()); //if you will not reverse sort, results might not be the same (we need descendiung)
 
     for(const auto& v: res) {       
         cout << v.second << " " << v.first;
