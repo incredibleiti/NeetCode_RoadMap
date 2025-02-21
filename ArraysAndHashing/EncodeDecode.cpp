@@ -76,3 +76,18 @@ string encode(vector<string>& strs) {
     return result;
 
 }
+
+vector<string> decode(string s) {
+          vector<string> res;
+    int i =0;
+    while(i < s.size()) {
+        int j = i; 
+        while(s[j]!='#') j++;
+        int len = stoi(s.substr(i,j-i));
+        i = j+1; //skip #    
+        string sub = s.substr(i, len);        
+        res.push_back(sub);
+        i+=len;
+    }
+    return res;
+    }
