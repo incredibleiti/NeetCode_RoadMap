@@ -63,3 +63,16 @@ int main() {
 
     return 0;
 }
+
+=====================Fixing double digit===============================
+    
+string encode(vector<string>& strs) {
+
+    string result = "";
+
+    for(int i=0; i<strs.size(); ++i) {
+        result.append(to_string(strs[i].size()) + "#" + strs[i]); // add a delimiter to make sure "10Rvsdsgad" is read as "10 length instead of "1" 0Rvsdsgad
+    }
+    return result;
+
+}
