@@ -25,13 +25,31 @@
 // 2 <= nums.length <= 1000
 // -20 <= nums[i] <= 20
 
-======================Brut force ============================
+========================================================  Brut force ========================================================
+vector<int> productExceptSelf(vector<int>& nums) {
+    int n = nums.size();
+        vector<int> res(n);
+
+        for (int i = 0; i < n; i++) {
+            int prod = 1;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    prod *= nums[j];
+                }
+            }
+            res[i] = prod;
+        }
+        return res;
+}
+
+================================================================================================================================
+=========================================================== Using Division Logic ===============================================
+================================================================================================================================
+
 ===================== For positive numbers just calculate prodyct and push in vector all divident value =====================
 ===================== Can use the same array and then change values =========================================================
-
-
 ============ For zeros needs better handling, if there are more than zeros, all values zero else only non zero value has product rest have zero===============
-
+    
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
@@ -64,22 +82,4 @@ public:
         return result;}
 };
 
-
-==================this above o(n*n) can also be cleaned as========================================
-
-vector<int> productExceptSelf(vector<int>& nums) {
-    int n = nums.size();
-        vector<int> res(n);
-
-        for (int i = 0; i < n; i++) {
-            int prod = 1;
-            for (int j = 0; j < n; j++) {
-                if (i != j) {
-                    prod *= nums[j];
-                }
-            }
-            res[i] = prod;
-        }
-        return res;
-}
 
