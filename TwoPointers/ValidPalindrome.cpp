@@ -113,6 +113,9 @@ while(lptr < rptr) {
     }
 }
 
+
+Time Complexity	O(n) (linear)
+Space Complexity	O(1) (constant)
 return true; 
 }
 
