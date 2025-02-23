@@ -61,3 +61,32 @@ bool isPalindrome(string s) {
     }
     return scopy == string(scopy.rbegin(), scopy.rend());    
 }
+
+
+==================== You can also loop over using two pointers ========================================================================
+
+bool isPalindrome(string s) {
+
+string newstring = "";
+for(char c : s) {
+    if(isalnum(c)) {
+        newstring+=tolower(c);
+    }
+}
+
+cout << "new string is " << newstring << endl;
+
+int lptr = 0;
+int rptr = newstring.size()-1;
+
+while(lptr<=rptr) {
+    if(newstring[lptr] == newstring[rptr]) {
+        lptr++;
+        rptr--;
+    } else {
+        return false;
+    }
+}
+
+return true;
+}
