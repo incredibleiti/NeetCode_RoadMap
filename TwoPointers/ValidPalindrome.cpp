@@ -49,3 +49,15 @@ int main()
 
     return 0;
 }
+
+====================== But above will fail for non alphanmeric characters since we have to ignore them=================================
+
+bool isPalindrome(string s) {
+    string scopy = "";
+        for(char c: s) {
+            if(isalnum(c)) {
+            scopy+=tolower(c);
+        }
+    }
+    return scopy == string(scopy.rbegin(), scopy.rend());    
+}
