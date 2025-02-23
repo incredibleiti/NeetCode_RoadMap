@@ -88,5 +88,31 @@ while(lptr<=rptr) {
     }
 }
 
-return true;
+    ============================== Avoiding extra copy of string and looping over same string==============================================
+
+bool isPalindrome(string s) {
+    int lptr = 0;
+int rptr = s.size()-1;
+
+//we add no new string to avoid copying and use the given string s
+
+while(lptr < rptr) {
+    if(!isalnum(s[lptr])) {
+        lptr++;
+        continue;
+    }
+    if(!isalnum(s[rptr])) {
+        rptr--;
+        continue;
+    }
+    if(tolower(s[lptr]) == tolower(s[rptr])) {
+        lptr++;
+        rptr--;
+    } else {
+        return false;
+    }
 }
+
+return true; 
+}
+
