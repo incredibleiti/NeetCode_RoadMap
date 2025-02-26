@@ -42,3 +42,25 @@ public:
         return res;
     }
 };
+
+===================================== But above we do unnecessary checks ======================================================
+===========================lets find the number and decide if this is the start of the sequence ===============================
+
+int longestConsecutive(vector<int>& nums) {
+        int res = 0;
+        unordered_set<int> numset (nums.begin(), nums.end());
+
+        for(int num: numset) {
+            if(numset.find(num-1)==numset.end()) { //if the map has no less than this (this is the start)
+                int longeststreak = 1;
+                int curr = num;
+                while(numset.find(curr+1)!=numset.end()) {
+                    longeststreak++; //add since set end is not reached means num is in set
+                    curr++; //increase number to find in set
+                }
+                if(res<longeststreak) res= longeststreak;
+            }
+        }
+        return res;
+    }
+    
