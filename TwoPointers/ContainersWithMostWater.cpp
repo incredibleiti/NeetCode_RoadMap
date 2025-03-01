@@ -63,3 +63,32 @@ Time complexity:
 O(n2)
 Space complexity: 
 O(1)
+
+
+============================== Two pointer approach ==================================
+
+  int maxArea(vector<int>& heights) {
+        int max = 0;
+        int i = 0; 
+        int j = heights.size()-1;
+        while(i<j) {
+            int temp = j-i;
+            int vol = 1;
+             if(heights[i] < heights[j]) {
+                vol = heights[i] * temp;
+                i++;
+            } else if(heights[i] > heights[j]) {
+                vol = heights[j] * temp;
+                j--;
+            } else {
+                vol = heights[i] * temp;
+                i++;
+            }
+            if(max < vol)
+            {
+                max = vol;
+            }
+            
+        }
+        return max;        
+    }
