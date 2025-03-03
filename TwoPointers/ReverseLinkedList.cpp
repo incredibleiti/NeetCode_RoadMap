@@ -1,0 +1,41 @@
+Reverse Linked List
+Given the beginning of a singly linked list head, reverse the list, and return the new beginning of the list.
+
+Example 1:
+
+Input: head = [0,1,2,3]
+
+Output: [3,2,1,0]
+Example 2:
+
+Input: head = []
+
+Output: []
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+
+        while (curr) {
+            ListNode* temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
+    }
+};
